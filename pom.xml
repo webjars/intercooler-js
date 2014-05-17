@@ -11,11 +11,28 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>intercooler-js</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>0.3.2-SNAPSHOT</version>
     <name>intercooler.js</name>
     <description>WebJar for intercooler.js</description>
     <url>http://webjars.org</url>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstream.version>0.3.2</upstream.version>
+        <upstream.url>https://s3.amazonaws.com/intercoolerjs.org/release</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "intercooler": "intercooler"
+                },
+                "shim": {
+                    "intercooler": ["jquery"]
+                }
+            }
+        </requirejs>
+    </properties>
+    
     <developers>
         <developer>
             <id>jamesward</id>
@@ -43,16 +60,9 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>1.10.2</version>
+            <version>1.11.1</version>
         </dependency>
     </dependencies>
-    
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>0.3.0</upstream.version>
-        <upstream.url>https://s3.amazonaws.com/intercoolerjs.org/release</upstream.url>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-    </properties>
     
     <build>
         <plugins>
