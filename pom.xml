@@ -11,16 +11,15 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>intercooler-js</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>0.9.7-SNAPSHOT</version>
     <name>intercooler.js</name>
     <description>WebJar for intercooler.js</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>0.9.4</upstream.version>
         <upstream.url>https://s3.amazonaws.com/intercoolerjs.org/release</upstream.url>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version.unsnapshot}</destDir>
         <requirejs>
             {
                 "paths": {
@@ -67,6 +66,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.1</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>wagon-maven-plugin</artifactId>
                 <version>1.0-beta-4</version>
@@ -79,7 +92,7 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}</url>
-                            <fromFile>intercooler-${upstream.version}.js</fromFile>
+                            <fromFile>intercooler-${version.unsnapshot}.js</fromFile>
                             <toFile>${destDir}/intercooler.js</toFile>
                         </configuration>
                     </execution>
@@ -91,7 +104,7 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}</url>
-                            <fromFile>intercooler-${upstream.version}.min.js</fromFile>
+                            <fromFile>intercooler-${version.unsnapshot}.min.js</fromFile>
                             <toFile>${destDir}/intercooler.min.js</toFile>
                         </configuration>
                     </execution>
