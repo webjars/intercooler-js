@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>intercooler-js</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>intercooler.js</name>
     <description>WebJar for intercooler.js</description>
     <url>http://webjars.org</url>
@@ -52,7 +52,7 @@
         <url>http://github.com/webjars/intercooler-js</url>
         <connection>scm:git:https://github.com/webjars/intercooler-js.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/intercooler-js.git</developerConnection>
-        <tag>intercooler-js-1.0.3</tag>
+        <tag>HEAD</tag>
     </scm>
     
     <dependencies>
